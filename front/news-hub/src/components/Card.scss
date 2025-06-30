@@ -1,0 +1,12 @@
+.card {
+  text-align: center;
+  height: 300px;
+  width: 380px;
+  background-color: #fff;
+  border: 1px solid #c71313;
+  &:last-child{
+    margin: 0 auto;
+  }
+}
+
+

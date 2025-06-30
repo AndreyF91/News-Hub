@@ -1,0 +1,12 @@
+.content {
+  &_wrapper {
+    margin: 0 auto;
+    height: 100%;
+    width: 1200px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    gap: 6px 4px;
+    flex-wrap: wrap;
+  }
+}
