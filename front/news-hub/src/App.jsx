@@ -6,26 +6,32 @@ import axios from 'axios';
 
 function App() {
   const [news, setNews] = useState();
-  
-  useEffect(() => {    
+  const [isFetching, setFetching] = useState(true)
+
+  useEffect(() => {
     return () => {
-      axios.get('http://localhost:8080/api/news/').then(
+      axios.get('http://192.168.0.105:8080/api/news').then(
         (response) => {
           setNews(response.data)
-        }     
+          setFetching(false)
+        }
       )
     };
   }, []);
-console.log(news);
+  console.log(news);
+  // 'https://vgr.by/wp-content/uploads/2025/04/fontany_2025_09.jpg'
+
+  if (isFetching) return <p>Loading...</p>
 
   return (
     <div className="App">
       <Header />
       <div className="content_wrapper">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {news.map((i, index) => {
+          return (<Card key={index} imgUrl={i.image_url} />)
+        })
+        }
+
       </div>
     </div>
   );
