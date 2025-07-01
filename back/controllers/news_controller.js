@@ -6,7 +6,7 @@ class NewsController{
         res.json('ok')
     }
     async getNewsAll(req, res){
-        const news = await db.query('SELECT news_id, news_title, news_text, news_author, news_category, publishing_date FROM news a UNION SELECT news_id, news_url, image_url FROM news_urls b WHERE a.news_id = b.news_id')
+        const news = await db.query('SELECT news.news_title, news.news_text, news.news_author, news.news_category, news.publishing_date, news_urls.news_url, news_urls.image_url FROM news INNER JOIN news_urls ON news.news_id = news_urls.news_id')
         res.json(news.rows)
     }
     async getNewsByAuthor(req, res){
