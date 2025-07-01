@@ -1,9 +1,12 @@
 import './Card.scss'
 
-const Card = () => {
+const Card = ({imgUrl}) => {
     return (
         <header className="card">
-            <h4>Название</h4>
+            <img className='card_img' src={imgUrl} alt="" />
+            <div className="card_overlay">
+                <p className="card_text"></p>
+            </div>
         </header>
     )
 }
