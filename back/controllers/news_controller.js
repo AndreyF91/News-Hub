@@ -9,13 +9,18 @@ class NewsController{
         const news = await db.query('SELECT news.news_title, news.news_text, news.news_author, news.news_category, news.publishing_date, news_urls.news_url, news_urls.image_url FROM news INNER JOIN news_urls ON news.news_id = news_urls.news_id')
         res.json(news.rows)
     }
+    async getNewsToday(req, res){
+        let date = new Date().toJSON()
+        const news = await db.query(`SELECT * FROM news WHERE publishing_date =$1`, [date])
+        res.json(news.rows)
+    }
     async getNewsByAuthor(req, res){
         let params = req.params.author
-        const news = await db.query(`SELECT * FROM news WHERE news_author =$1`, [params])
+        const news = await db.query(`SELECT * FROM news WHERE author =$1`, [params])
         res.send(news.rows)
     }
     async getNewsByDate(req, res){
-        let params = req.params.date
+        
         const news = await db.query(`SELECT * FROM news WHERE publishing_date =$1`, [params])
         res.send(news.rows)
     }
