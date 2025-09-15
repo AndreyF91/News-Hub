@@ -10,7 +10,8 @@ function App() {
 
   useEffect(() => {
     return () => {
-      axios.get('http://192.168.0.105:8080/api/news').then(
+      // 192.168.0.105
+      axios.get('http://localhost:8080/api/news').then(
         (response) => {
           setNews(response.data)
           setFetching(false)

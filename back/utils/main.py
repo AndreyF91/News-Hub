@@ -10,7 +10,7 @@ headers = {
 articles = []
 urls = []
 
-for i in range (1, 5):
+for i in range (1, 15):
 
     url = 'https://vgr.by/2025/page/' + str(i)
     def getSoup(url, headers):

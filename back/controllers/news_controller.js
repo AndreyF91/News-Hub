@@ -6,7 +6,7 @@ class NewsController{
         res.json('ok')
     }
     async getNewsAll(req, res){
-        const news = await db.query('SELECT news.news_title, news.news_text, news.news_author, news.news_category, news.publishing_date, news_urls.news_url, news_urls.image_url FROM news INNER JOIN news_urls ON news.news_id = news_urls.news_id')
+        const news = await db.query('SELECT news.title, news.news_text, news.author, news.category, news.publishing_date, news.origin, news.views, news_urls.news_url, news_urls.image_url FROM news INNER JOIN news_urls ON news.id = news_urls.news_id')
         res.json(news.rows)
     }
     async getNewsToday(req, res){
