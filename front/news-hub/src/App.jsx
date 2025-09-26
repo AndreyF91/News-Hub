@@ -13,7 +13,7 @@ function App() {
       // 192.168.0.105
       axios.get('http://localhost:8080/api/news').then(
         (response) => {
-          setNews(response.data)
+          setNews(response.data.slice(0,12))
           setFetching(false)
         }
       )
