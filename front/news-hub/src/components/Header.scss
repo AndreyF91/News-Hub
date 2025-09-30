@@ -4,17 +4,18 @@
   border-bottom: 1px solid #000;
   border-radius: 10px;
   background-color: #ad9292;
-
+  
 
   margin-bottom: 5px;
 
   &_container {
-      margin: 0 auto;
+    margin: 0 auto;
     max-width: 1200px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
   }
 
   &_logo {
@@ -44,10 +45,29 @@
     }
   }
   &_search{
-    &--item{
-      width: 100px;
-      height: 25px;
+    position: relative;
+    
+
+    &_field{
+      position: absolute;
+      right: -250px;
+      width: 250px;
+      height: 30px;
       background-color: #fff;
+
+      &--active {
+        @extend .header_search_field;
+        transition: .5s ease;
+        right: 30px;
+        overflow: hidden;
+      }
+    }
+    &_btn {
+      overflow: hidden;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #000;
+      z-index: 1000;
     }
   }
 }
